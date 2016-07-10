@@ -1,5 +1,43 @@
+# Tamatrix
+Run your very own Matrix for Tamagotchis, where they are cared for by a benevolent artificial intelligence.
+
+## How to Run
+The project is setup as a Docker container. After you've installed [Docker](https://www.docker.com/), simply run:
+
+```bash
+# Build the image
+docker build .
+
+# List all of your images, and make note of the id of the image you just built
+docker images
+
+# Start a container with the image you built
+docker run -td -p 3000:80 <image-id>
+```
+
+Now you can go to ```localhost:3000``` in your browser and see your Matrix running!
+
+## The ROMs
+The Docker setup will start a Tamagotchi emulator for each ROM in the ```roms/``` directory. There's 5 starters provided
+there. If you would like to have more Tamagotchis running, simply add more ROMs to this folder. I plan on streamlining
+this process, but for now look at the original README for this project below, and follow the emulator usage instructions
+to create new ROMs.
+
+## Attaching to the Container
+To keep the container running, the Dockerfile runs ```tail -f /dev/null``` at the end of the setup. This means a typical
+```docker attach <container-id>``` won't work. Instead, if you'd like to connect to the container while it's running,
+simply run:
+
+```bash
+docker exec -it <container-id> bash
+```
+
+## Dokku
+This project works great with [dokku](https://github.com/dokku/dokku)! Simply push this repo to your dokku server and
+it'll just work.
+
 # Background
-This is effectively a fork of the codebase created by Spritesmods. The original repository is hosted on a personal git
+This is effectively a fork of the codebase created by [Spritesmods](http://spritesmods.com/). The original repository is hosted on a personal git
 server and can be retrieved with the following:
 
 ```git clone http://git.spritesserver.nl/tamatrix.git```
