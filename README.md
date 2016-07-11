@@ -36,13 +36,21 @@ docker exec -it <container-id> bash
 This project works great with [dokku](https://github.com/dokku/dokku)! Simply push this repo to your dokku server and
 it'll just work.
 
-However, I do highly recommend you run the following dokku command before deploying to disable logs:
+However, I do *highly* recommend you run the following dokku command before deploying to disable logs:
 
 ```bash
 dokku docker-options:add <app-name> deploy "--log-driver=none"
 ```
 
 Otherwise, you may find that logs are quickly filling up your server!
+
+## CPU Usage
+On my [$10 DigitalOcean box](http://tamatrix.dokku.mordorm.com), each instance of the emulator takes up ~10.1% of the CPU.
+That's why I've limited the number of pets to 5.
+
+However, it's worth noting that they take up very little RAM and disk space. From the looks of DigitalOcean's site, both
+the $5 and $10 instances both get 1 CPU, so if you're *just* running Tamatrix and want some cheap hosting, you could
+probably run 9 of them on the $5 instance without issue.
 
 # Background
 This is effectively a fork of the codebase created by [Spritesmods](http://spritesmods.com/). The original repository is
