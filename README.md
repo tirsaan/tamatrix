@@ -36,9 +36,17 @@ docker exec -it <container-id> bash
 This project works great with [dokku](https://github.com/dokku/dokku)! Simply push this repo to your dokku server and
 it'll just work.
 
+However, I do highly recommend you run the following dokku command before deploying to disable logs:
+
+```bash
+dokku docker-options:add <app-name> deploy "--log-driver=none"
+```
+
+Otherwise, you may find that logs are quickly filling up your server!
+
 # Background
-This is effectively a fork of the codebase created by [Spritesmods](http://spritesmods.com/). The original repository is hosted on a personal git
-server and can be retrieved with the following:
+This is effectively a fork of the codebase created by [Spritesmods](http://spritesmods.com/). The original repository is
+hosted on a personal git server and can be retrieved with the following:
 
 ```git clone http://git.spritesserver.nl/tamatrix.git```
 
