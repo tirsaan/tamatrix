@@ -52,6 +52,11 @@ However, it's worth noting that they take up very little RAM and disk space. Fro
 the $5 and $10 instances both get 1 CPU, so if you're *just* running Tamatrix and want some cheap hosting, you could
 probably run 9 of them on the $5 instance without issue.
 
+## Other Viewers
+Because each Tamatrix server exposes a simple API, it's easy to build other viewers. Here's a list:
+
+* Android: [Link](https://github.com/greysonp/tamatrix-android-viewer)
+
 # Background
 This is effectively a fork of the codebase created by [Spritesmods](http://spritesmods.com/). The original repository is
 hosted on a personal git server and can be retrieved with the following:
